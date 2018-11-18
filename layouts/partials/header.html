@@ -1,0 +1,32 @@
+<header class="head">
+	<nav class="navbar is-fixed-top is-dark">
+		<div class="container">
+			<div class="navbar-brand">
+				<a href="/" class="navbar-item">
+					<b>phuctk93</b>
+				</a>
+				<span class="navbar-burger burger" data-target="navbarMenuHeroB">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</div>
+			<div id="navbarMenuHeroB" class="navbar-menu">
+				<div class="navbar-end">
+					{{ $currentPage := . }}
+					{{ range .Site.Menus.main }}
+					<a class="navbar-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+					{{ end }}
+					<span class="navbar-item">
+						<a class="button is-info is-inverted">
+							<span class="icon">
+								<i class="fab fa-github"></i>
+							</span>
+							<span>Download</span>
+						</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>

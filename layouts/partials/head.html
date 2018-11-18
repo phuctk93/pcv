@@ -1,0 +1,10 @@
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="description" content='{{ .Description }}' />
+	<meta name="author" content="{{ with .Site.Params.author }}{{.}}{{end}}">
+	<link rel="icon" href="{{ .Site.BaseURL }}favicon.ico">
+	<link rel="canonical" href="{{ .Permalink }}">
+	<title>{{ .Title }}</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+</head>
