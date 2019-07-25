@@ -2,6 +2,6 @@
 	<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="/{{.Section}}">{{.Section}}</a></li>
-			<li class="is-active"><a href="{{.Permalink}}">{{.Title}}</a></li>
+			<li class="is-active"><a href="{{.Permalink}}">{{lower .Title}}</a></li>
 	</ul>
 </nav>

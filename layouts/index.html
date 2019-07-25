@@ -1,23 +1,16 @@
 {{ define "main" }}
-<section id="hi" class="hero is-dark is-fullheight">
+<section id="hi" class="hero is-info is-fullheight">
   <div class="hero-body">
     <div class="container has-text-centered">
-			<figure class="image is-128x128" style="margin: auto">
-				<img class="is-rounded" src="{{.Site.Params.logo}}" />
-			</figure>
 			<div id="main" class="content">
 				{{.Content}}
 			</div>
-			<br>
-			<p id="action">
-				<a href="#contact" class="button is-medium is-info">Contact</a>
-			</p>
     </div>
   </div>
 </section>
 {{ range .Pages.GroupBy "Section" }}
-<section id="{{ .Key }}" class="section">
-		<h3 class="title">{{ upper .Key }}</h3>
+<section id="{{ .Key }}" class="section has-text-centered">
+		<h2 class="title is-size-2">{{ upper .Key }}</h2>
 		<div class="container">
 			<div class="columns is-multiline">
 					{{ range first 9 .Pages }}
@@ -25,7 +18,7 @@
 							<div class="card">
 								<div class="card-image">
 									<figure class="image is-4by3">
-										<img src="https://bulma.io/images/placeholders/640x480.png" alt="Placeholder image">
+										<img src="{{.Params.Photo}}" alt="Placeholder image">
 									</figure>
 								</div>
 								<div class="card-content">
@@ -42,34 +35,64 @@
 		</div>
 	</section>
 {{ end }}
-<section id="contact" class="hero is-dark is-medium">
-	<div class="hero-body">
-		<h2 class="is-size-2">CONTACT</h2>
-		<div class="columns container">
-			<div class="column">
+<section id="contact" class="hero is-light is-medium">
+	<div class="hero-body has-text-centered">
+		<h2 class="title is-size-2">CONTACT</h2>
+		<div class="columns is-multiline">
+			<a href="mailto:{{.Site.Params.email}}" class="column has-text-danger is-12-mobile is-6-table is-4-desktop">
+				<i class="fas fa-envelope fa-3x"></i>
 				<h3 class="is-size-3">
 					Email
 				</h3>
-				<a href="mailto:{{.Site.Params.email}}" class="sub-title" target="_blank">
-						{{.Site.Params.email}}
-				</a>
-			</div>
-			<div class="column">
+				<p target="_blank">
+					{{.Site.Params.email}}
+				</p>
+			</a>
+			<a href="{{.Site.Params.github}}" class="column has-text-dark is-12-mobile is-6-table is-4-desktop">
+				<i class="fab fa-github fa-3x"></i>
 				<h3 class="is-size-3">
 					Github
 				</h3>
-				<a href="{{.Site.Params.github}}" class="sub-title" target="_blank">
-						{{.Site.Params.github}}
-				</a>
-			</div>
-			<div class="column">
+				<p target="_blank">
+					{{.Site.Params.github}}
+				</p>
+			</a>
+			<a href="{{.Site.Params.facebook}}" class="column has-text-link is-12-mobile is-6-table is-4-desktop">
+				<i class="fab fa-facebook fa-3x"></i>
 				<h3 class="is-size-3">
 					Facebook
 				</h3>
-				<a href="{{.Site.Params.facebook}}" class="sub-title">
-						{{.Site.Params.facebook}}
-				</a>
-			</div>
+				<p>
+					{{.Site.Params.facebook}}
+				</p>
+			</a>
+			<a href="{{.Site.Params.linkedin}}" class="column has-text-link">
+				<i class="fab fa-linkedin fa-3x"></i>
+				<h3 class="is-size-3">
+					Linkedin
+				</h3>
+				<p>
+					{{.Site.Params.linkedin}}
+				</p>
+			</a>
+			<a href="{{.Site.Params.twitter}}" class="column has-text-info">
+				<i class="fab fa-twitter fa-3x"></i>
+				<h3 class="is-size-3">
+					Twitter
+				</h3>
+				<p>
+					{{.Site.Params.twitter}}
+				</p>
+			</a>
+			<a href="{{.Site.Params.youtube}}" class="column has-text-danger">
+				<i class="fab fa-youtube fa-3x"></i>
+				<h3 class="is-size-3">
+					Youtube
+				</h3>
+				<p>
+					{{.Site.Params.youtube}}
+				</p>
+			</a>
 		</div>
 	</div>
 </section>

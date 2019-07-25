@@ -6,13 +6,13 @@
 				<div class="card">
 					<div class="card-image">
 						<figure class="image is-4by3">
-							<img src="https://bulma.io/images/placeholders/640x480.png" alt="Placeholder image">
+							<img src="{{.Params.photo}}" alt="Placeholder image">
 						</figure>
 					</div>
 					<div class="card-content">
 						<h3 class="title">{{.Title}}</h3>
 						<div class="sub-title">
-							{{.Date.Format "27-07-2018"}}
+							{{ .Date.Format "2006-01-02" }}
 						</div>
 					</div>
 				</div>
