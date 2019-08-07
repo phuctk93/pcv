@@ -1,23 +1,31 @@
 {{ define "main" }}
-<section class="section">
+<section class="section container">
 {{- partial "breadcrumb.html" . -}}
-	<div class="container content">
-		<h1>{{ .Title }}</h1>
-		<div class="">
-				{{ .Content }}
+	<div class="columns content is-multiline">
+		<div class="column is-12">
+				<h1>{{ .Title }}</h1>
+				<div id="content">
+						{{ .Content }}
+				</div>
 		</div>
-		<div class="tags are-large">
-			{{ range .Params.tags }}
-				<a href="{{ "tags/" | absURL }}{{ . | urlize }}" class="tag">{{.}} </a>
-			{{ end }}
+		<div class="column is-12">
+			<b>Published date:</b> {{ .Date.Format "02-01-2006" }}
+		</div>
+		<div class="column is-12">
+			<b>Tags: </b>
+			<div class="tags">
+				{{ range .Params.tags }}
+					<a href="{{ "tags/" | absURL }}{{ . | urlize }}" class="tag is-info">{{.}} </a>
+				{{ end }}
+			</div>
 		</div>
 	</div>
 	<nav class="pagination is-rounded" role="navigation" aria-label="pagination">
 		{{ with .PrevInSection }}
-		<a href="{{.Permalink}}" class="pagination-previous" title="{{.Title}}"><i class="fas fa-arrow-left"></i> {{.Title}}</a>
+		<a href="{{.Permalink}}" class="pagination-previous" title="{{.Title}}"><i class="fas fa-arrow-left"> </i> {{.Title}}</a>
 		{{end}}
 		{{ with .NextInSection }}
-		<a href="{{.Permalink}}" class="pagination-next" title="{{.Title}}"> {{.Title}}<i class="fas fa-arrow-right"></i></a>
+		<a href="{{.Permalink}}" class="pagination-next" title="{{.Title}}"> {{.Title}} <i class="fas fa-arrow-right"> </i></a>
 		{{end}}
 	</nav>
 </section>

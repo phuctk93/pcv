@@ -1,5 +1,5 @@
 {{ define "main" }}
-<section id="hi" class="hero is-info is-fullheight">
+<section id="hi" class="hero is-dark is-fullheight">
   <div class="hero-body">
     <div class="container has-text-centered">
 			<div id="main" class="content">
@@ -16,13 +16,14 @@
 					{{ range first 9 .Pages }}
 					<a href="{{.Permalink}}" class="column is-4">
 							<div class="card">
-								<div class="card-image">
+								<header class="card-image">
 									<figure class="image is-4by3">
 										<img src="{{.Params.Photo}}" alt="Placeholder image">
 									</figure>
-								</div>
+								</header>
 								<div class="card-content">
-									<h3 class="title">{{.Title}}</h3>
+									<h3 class="card-header-title">{{.Title}}</h3>
+									<p>{{ .Description }}</p>
 								</div>
 							</div>
 					</a>
